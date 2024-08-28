@@ -12,6 +12,6 @@ do_install() {
     ln -s ${D}${systemd_system_unitdir}/slb9670-rpi.service ${D}${sysconfdir}/systemd/system/multi-user.target.wants
 }
 
-FILES_${PN} += "${systemd_system_unitdir}/slb9670-rpi.service"
+FILES:${PN} += "${systemd_system_unitdir}/slb9670-rpi.service"
 
 REQUIRED_DISTRO_FEATURES = "systemd"
