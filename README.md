@@ -36,8 +36,6 @@ It also gives an Image for quick start tests.
 
 ```bash
 U-Boot> tpm2 init
-tpm_tis_spi_probe() SPI TPMv2.0 found (vid:15d1, did:001b, rid:16)
-
 U-Boot> tpm2 startup TPM2_SU_CLEAR
 U-Boot> tpm2 get_capability 0x6 0x106 0x200 2
 Capabilities read from TPM:
