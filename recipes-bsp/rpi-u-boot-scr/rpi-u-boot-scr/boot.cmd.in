@@ -1,3 +1,9 @@
 fdt addr ${fdt_addr} && fdt get value bootargs /chosen bootargs
-fatload mmc 0:1 ${kernel_addr_r} @@KERNEL_IMAGETYPE@@
-@@KERNEL_BOOTCMD@@ ${kernel_addr_r}#@@KERNEL_FITCONFIG@@ - ${fdt_addr}
+# Load the kernel to ramdisk address. We do not have a ramdisk in our image
+# so the address can be used, and we are assumed to be using fitImage. This
+# is required because we extract the kernel from fitImage to address
+# 0x00008000. If we load the fitImage to the kernel_addr_r at 0x00080000 as
+# is done usually extracting kernel will overwrite the fitImage and cause
+# the kernel extraction to fail
+fatload mmc 0:1 ${ramdisk_addr_r} @@KERNEL_IMAGETYPE@@
+@@KERNEL_BOOTCMD@@ ${ramdisk_addr_r}#@@KERNEL_FITCONFIG@@ - ${fdt_addr}
