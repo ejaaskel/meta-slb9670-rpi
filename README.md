@@ -2,7 +2,7 @@
 
 Yocto layer for Letstrust TPM2.0 Module and RaspberryPi.
 
-It allows you to support the SLB9670 TPM2.0 with your RaspberryPi (Tested with RaspberryPi4).
+It allows you to support the SLB9670 TPM2.0 with your RaspberryPi (Tested with RaspberryPi4-64).
 
 It also gives an Image for quick start tests.
 
@@ -17,10 +17,10 @@ It also gives an Image for quick start tests.
 ## Dependencies
 
   URI: <https://github.com/agherzan/meta-raspberrypi.git>
-  branch: **dunfell**
+  branch: **scarthgap**
 
   URI: <git://git.yoctoproject.org/meta-security>
-  branch: **dunfell**
+  branch: **scarthgap**
 
 ## Quick Start
 
@@ -55,18 +55,18 @@ b'SLB9670\x00'
 Edit your local conf in order to enable U-Boot and support fitImage.
 
 ```
-MACHINE ??= "raspberrypi4"
+MACHINE ??= "raspberrypi4-64"
 ENABLE_UART = "1"
 RPI_USE_U_BOOT = "1"
 ENABLE_SPI_BUS = "1"
 RPI_EXTRA_CONFIG = "dtoverlay=letstrust-tpm"
 KERNEL_CLASSES = "kernel-fitimage"
 KERNEL_IMAGETYPE = "fitImage"
-KERNEL_FITCONFIG = "conf@bcm2711-rpi-4-b.dtb"
+KERNEL_FITCONFIG = "conf-bcm2711-rpi-4-b.dtb"
 KERNEL_BOOTCMD = "bootm"
 UBOOT_SIGN_ENABLE = "1"
-MACHINE_FEATURES_append = "tpm2"
-DISTRO_FEATURES_append = " systemd tpm2 "
+MACHINE_FEATURES:append = "tpm2"
+DISTRO_FEATURES:append = " systemd tpm2 usrmerge"
 VIRTUAL-RUNTIME_init_manager = "systemd"
 DISTRO_FEATURES_BACKFILL_CONSIDERED = "sysvinit"
 VIRTUAL-RUNTIME_initscripts = ""
@@ -76,4 +76,4 @@ VIRTUAL-RUNTIME_initscripts = ""
 
 Original Maintainer: Pierre Fontaine <pierre.ftn@pfontaine.fr>
 
-`dunfell` Branch editor: Jason Kolodziej <me@jasonkolodziej>
+`scarthgap` Branch editor: ejaaskel <esa.jaaskela@suomi24.fi>
