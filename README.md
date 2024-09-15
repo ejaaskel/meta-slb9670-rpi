@@ -63,11 +63,8 @@ KERNEL_IMAGETYPE = "fitImage"
 KERNEL_FITCONFIG = "conf-bcm2711-rpi-4-b.dtb"
 KERNEL_BOOTCMD = "bootm"
 UBOOT_SIGN_ENABLE = "1"
-MACHINE_FEATURES:append = "tpm2"
-DISTRO_FEATURES:append = " systemd tpm2 usrmerge"
-VIRTUAL-RUNTIME_init_manager = "systemd"
-DISTRO_FEATURES_BACKFILL_CONSIDERED = "sysvinit"
-VIRTUAL-RUNTIME_initscripts = ""
+MACHINE_FEATURES:append = " tpm2"
+DISTRO_FEATURES:append = " tpm2"
 ```
 
 ## Maintainer
