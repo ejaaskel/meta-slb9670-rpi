@@ -41,6 +41,8 @@
 
 				/* for kernel driver */
 				spi-max-frequency = <1000000>;
+				linux,sml-base = <0x00 0xf6ffa000>;
+				linux,sml-size = <0x6000>;
 			};
 		};
 	};
